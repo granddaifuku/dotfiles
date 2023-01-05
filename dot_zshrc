@@ -1,0 +1,86 @@
+### Path
+export PATH="/usr/local/:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
+
+### Env
+export CXXFLAGS="-I/usr/local/include"
+export JAVA_HOME="/usr/libexec/java_home -v 19"
+export GOPATH="$HOME/.go"
+
+
+### Alias
+alias ls='ls --color=auto -F'
+alias gg='g++ -Wall -Wextra -pedantic -std=c++17 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -fstack-protector'
+
+
+### Locale setting
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+
+### History
+HISTSIZE=100000
+SAVEHIST=1000000
+setopt share_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt HIST_FIND_NO_DUPS 
+setopt HIST_NO_STORE
+setopt hist_reduce_blanks
+
+### Starship
+eval "$(starship init zsh)"
+
+
+### Completion
+autoload -Uz compinit && compinit
+
+
+### Sheldon
+eval "$(sheldon source)"
+
+
+### fzf
+#### search history
+function fzf-select-history() {
+	local tac=${commands[tac]:-"tail -r"}
+    BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | sed 's/ *[0-9]* *//' | eval $tac | awk '!a[$0]++' | fzf --exact --reverse --prompt="History > ")
+    CURSOR=${#BUFFER}
+    zle clear-screen
+}
+
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
+
+
+### Emacs
+#### vterm shell configuration
+vterm_printf(){
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+##### vterm-clear-scrollback
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
+
+##### vterm-buffer-name-string
+autoload -U add-zsh-hook
+add-zsh-hook -Uz chpwd (){ print -Pn "\e]2;%m:%2~\a" }
+
+##### Directory tracking and Prompt tracking
+vterm_prompt_end() {
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)";
+}
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'

@@ -1,0 +1,10 @@
+# Insert a blank line between prompts
+add_newline = false
+
+# Show path up to 8 directories
+[directory]
+truncation_length = 8
+
+# Do not show execution time
+[cmd_duration]
+disabled = true
