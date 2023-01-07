@@ -1,0 +1,11 @@
+[color]
+	ui = auto
+[user]
+	name = granddaifuku
+	email = daifukuformac@gmail.com
+[pull]
+	ff = only
+[http]
+	postBuffer = 2M
+[init]
+	defaultBranch = main
