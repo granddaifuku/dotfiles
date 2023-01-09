@@ -1,0 +1,18 @@
+* dotfiles
+
+** Requirements
+- [[https://github.com/twpayne/chezmoi][chezmoi]]
+
+** Usage
+1. Install chezmoi
+2. ~chezmoi init https://github.com/granddaifuku/dotfiles~
+3. ~chezmoi apply -v~
+
+** Managed files
+- ~Brewfile~
+- ~.zshrc~
+- ~.gitconfig~
+- ~.wezterm.lua~
+- ~Sheldon~
+- ~Starship~
+
