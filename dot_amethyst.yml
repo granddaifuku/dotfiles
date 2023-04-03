@@ -1,0 +1,19 @@
+mod1:
+  - command
+  - option
+
+layouts:
+  - tall
+  - fullscreen
+  - two-thirds
+  - one-third
+
+focus-cw:
+  mod: mod1
+  key: o
+
+toggle-float:
+  mod: mod1
+  key: t
+
+float-small-windows: true
