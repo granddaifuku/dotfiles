@@ -8,6 +8,10 @@ layouts:
   - two-thirds
   - one-third
 
+floating: [
+  "com.apple.finder"
+]
+
 focus-cw:
   mod: mod1
   key: o
