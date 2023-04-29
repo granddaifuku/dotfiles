@@ -30,4 +30,4 @@ github = 'romkatv/zsh-defer'
 github = 'zsh-users/zsh-syntax-highlighting'
 
 [plugins.zsh-autosuggestions]
-local = "/usr/local/Cellar/zsh-autosuggestions"
+github = 'zsh-users/zsh-autosuggestions'
