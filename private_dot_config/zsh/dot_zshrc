@@ -7,7 +7,6 @@ export PATH="$GOPATH/bin:$PATH"
 ### Env
 export CXXFLAGS="-I/usr/local/include"
 export JAVA_HOME="/usr/libexec/java_home -v 19"
-export GOPATH="$HOME/.go"
 
 
 ### Alias
@@ -15,12 +14,6 @@ alias ls='ls --color=auto -F'
 ##### -fsanitize=address does not work for some reasons
 ##### after that issue is solved, add -fsanitize=address again.
 alias gg='g++ -Wall -Wextra -pedantic -std=c++17 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=undefined -fno-sanitize-recover -fstack-protector'
-
-
-### Locale setting
-export LANGUAGE=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 
 ### History
@@ -33,12 +26,13 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_NO_STORE
 setopt hist_reduce_blanks
 
-### Starship
-eval "$(starship init zsh)"
-
 
 ### Completion
 autoload -Uz compinit && compinit
+
+
+### Starship
+eval "$(starship init zsh)"
 
 
 ### Sheldon
