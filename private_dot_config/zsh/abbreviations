@@ -1,0 +1,4 @@
+abbr "ga"="git add"
+abbr "gc"="git checkout"
+abbr "gcm"="git commit -m"
+abbr "gs"="git status"
