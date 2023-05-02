@@ -4,6 +4,10 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
 
+### Emacs keybind
+bindkey -e
+
+
 ### Env
 export CXXFLAGS="-I/usr/local/include"
 export JAVA_HOME="/usr/libexec/java_home -v 19"
