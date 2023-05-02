@@ -1,7 +1,6 @@
 ### Path
 export PATH="/usr/local/:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
 
 
 ### Emacs keybind
