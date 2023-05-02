@@ -1,0 +1,32 @@
+## Locale
+export LANGUAGE="en_US.UTF-8"
+export LANG="$LANGUAGE"
+export LC_ALL="$LANGUAGE"
+export LC_CTYPE="$LANGUAGE"
+
+
+## Editor
+EDITOR="$(
+  command -v -- emacs ||
+  command -v -- vim ||
+  command -v -- vi
+)"
+if test -n "${EDITOR}"; then
+	export EDITOR
+fi
+
+
+## Path
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+
+
+## zsh
+ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+
+
+## Go
+export GOPATH="${XDG_DATA_HOME}/go"
+export PATH="$PATH:${GOPATH}/bin"
