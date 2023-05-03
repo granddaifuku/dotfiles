@@ -9,7 +9,6 @@ bindkey -e
 
 ### Env
 export CXXFLAGS="-I/usr/local/include"
-export JAVA_HOME="/usr/libexec/java_home -v 19"
 
 
 ### Alias
