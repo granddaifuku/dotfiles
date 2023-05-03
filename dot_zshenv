@@ -27,6 +27,11 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
 
+## Docker
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+export PATH="$PATH:${DOCKER_CONFIG}/bin"
+
+
 ## Go
 export GOPATH="${XDG_DATA_HOME}/go"
 export PATH="$PATH:${GOPATH}/bin"
