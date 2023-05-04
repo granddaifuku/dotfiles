@@ -27,6 +27,10 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
 
+## Starship
+export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
+
+
 ## WezTerm
 export WEZTERM_CONFIG_FILE="${XDG_CONFIG_HOME}/wezterm/wezterm.lua"
 
