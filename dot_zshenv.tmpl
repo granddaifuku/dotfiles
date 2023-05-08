@@ -57,10 +57,10 @@ export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export PATH="$PATH:${CARGO_HOME}/bin"
 
-{{- if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "darwin" }}
 ## Java
 JAVA_HOME="$(/usr/libexec/java_home)"
 if test -n "${JAVA_HOME}"; then
         export JAVA_HOME
 fi
-{{- end }}
+{{ end }}
