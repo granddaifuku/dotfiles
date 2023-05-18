@@ -138,9 +138,12 @@ return {
    cursor_blink_rate = 575,
    {{ if eq .chezmoi.os "darwin" -}}
    font = wezterm.font 'Menlo',
-   {{- else -}}
-   font = wezterm.font 'Meslo',
-   {{- end }}
    line_height = 1.2,
+   font_size = 12.0,
+   {{- else -}}
+   font = wezterm.font 'Noto Sans Mono',
+   line_height = 1.0,
+   font_size = 8.3,
+   {{- end }}
    hide_tab_bar_if_only_one_tab = true,
 }
