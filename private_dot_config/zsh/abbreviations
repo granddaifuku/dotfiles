@@ -1,3 +1,7 @@
+abbr kbct="kubectl"
+abbr kbcta="kubectl apply -f"
+abbr kbctd="kubectl delete"
+abbr kbctg="kubectl get"
 abbr g="git"
 abbr ga="git add"
 abbr gb="git branch"
