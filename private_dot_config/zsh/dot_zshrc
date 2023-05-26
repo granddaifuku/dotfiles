@@ -33,6 +33,10 @@ setopt hist_reduce_blanks
 autoload -Uz compinit && compinit
 
 
+### kubernetes
+source <(kubectl completion zsh)
+
+
 ### Starship
 eval "$(starship init zsh)"
 
