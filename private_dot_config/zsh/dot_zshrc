@@ -34,7 +34,10 @@ autoload -Uz compinit && compinit
 
 
 ### kubernetes
-source <(kubectl completion zsh)
+KUBECTL="$(command -v -- kubectl)"
+if test -n "${KUBECTL}"; then
+   source <(kubectl completion zsh)
+fi
 
 
 ### Starship
