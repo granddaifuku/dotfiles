@@ -2,3 +2,6 @@
 Brewfile
 **/karabiner/
 {{- end }}
+{{- if ne .chezmoi.os "linux" }}
+**/xremap/
+{{- end }}

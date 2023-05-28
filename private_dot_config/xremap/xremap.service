@@ -1,0 +1,11 @@
+[Unit]
+Description=xremap
+
+[Service]
+KillMode=process
+ExecStart=/home/granddaifuku/.local/share/cargo/bin/xremap --watch=config /home/granddaifuku/.config/xremap/config.yml
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target
