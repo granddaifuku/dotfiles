@@ -1,3 +1,5 @@
+abbr emc="emacsclient -c -a ''"
+abbr kemc="emacsclient -e '(kill-emacs)'"
 abbr kbct="kubectl"
 abbr kbcta="kubectl apply -f"
 abbr kbctd="kubectl delete -f"
