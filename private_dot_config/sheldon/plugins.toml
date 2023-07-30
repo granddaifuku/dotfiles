@@ -34,3 +34,6 @@ github = 'zsh-users/zsh-autosuggestions'
 
 [plugins.enhancd]
 github = 'b4b4r07/enhancd'
+
+[plugins.zsh-autopair]
+github = 'hlissner/zsh-autopair'
