@@ -2,7 +2,7 @@
 keymap:
   - name: Default
     application:
-      not: [org.wezfurlong.wezterm, emacs, brave-browser]
+      not: [org.wezfurlong.wezterm.org.wezfurlong.wezterm, emacs.Emacs, brave-browser.Brave-browser]
     remap:
       # Cursor
       C-b: { with_mark: left }
@@ -63,7 +63,7 @@ keymap:
           
   - name: Browser
     application:
-      only: [brave-browser]
+      only: [brave-browser.Brave-browser]
     remap:
       # Cursor
       C-b: { with_mark: left }
