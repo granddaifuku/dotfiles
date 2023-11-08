@@ -13,27 +13,32 @@
 shell = "zsh"
 
 [templates]
-defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
 [plugins]
 
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
 [plugins.zsh-abbr]
-github = 'olets/zsh-abbr'
+github = "olets/zsh-abbr"
+apply = ["defer"]
 
 [plugins.zsh-completions]
-github = 'zsh-users/zsh-completions'
-
-[plugins.zsh-defer]
-github = 'romkatv/zsh-defer'
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
 
 [plugins.zsh-syntax-highlighting]
-github = 'zsh-users/zsh-syntax-highlighting'
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
 
 [plugins.zsh-autosuggestions]
-github = 'zsh-users/zsh-autosuggestions'
+github = "zsh-users/zsh-autosuggestions"
 
 [plugins.enhancd]
-github = 'b4b4r07/enhancd'
+github = "b4b4r07/enhancd"
+apply = ["defer"]
 
 [plugins.zsh-autopair]
-github = 'hlissner/zsh-autopair'
+github = "hlissner/zsh-autopair"
+apply = ["defer"]
