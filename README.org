@@ -9,10 +9,18 @@
 3. ~chezmoi apply -v~
 
 ** Managed files
-- ~Brewfile~
-- ~.zshrc~
-- ~.gitconfig~
-- ~.wezterm.lua~
+
+*** Common
+- ~git~
+- ~WezTerm~
 - ~Sheldon~
 - ~Starship~
+- ~zsh~
+
+*** Darwin
+- ~Brewfile~
+- ~Karabiner-Elements~
+
+*** Linux
+- ~xremap~
 
