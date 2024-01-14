@@ -1,0 +1,13 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Setup chezmoi
+        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku --branch ${{ github.head_ref }}
+        

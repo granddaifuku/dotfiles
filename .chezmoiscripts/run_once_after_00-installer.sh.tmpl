@@ -1,0 +1,27 @@
+#!/bin/bash
+set -uxo pipefail
+
+source ~/.zshenv
+
+{{- if eq .chezmoi.os "darwin" }}
+brew bundle --global
+{{- else -}}
+
+{{- end }}
+
+## Tools
+
+### Rust
+if [ ! $(command -v btm) ]; then
+	cargo install bottom --locked
+fi
+
+if [ ! $(command -v rg) ]; then
+	cargo install ripgrep
+fi
+
+cargo install cargo-update
+
+## Zsh plugins
+sheldon lock
+
