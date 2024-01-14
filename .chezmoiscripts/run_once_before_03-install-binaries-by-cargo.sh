@@ -1,8 +1,8 @@
 #!/bin/zsh
 set -uxo pipefail
 
-{{ if eq.chezmoi.os "darwin" -}}
-{{ if eq.chezmoi.arch "arm64" -}}
+{{ if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.arch "arm64" -}}
 eval $(/opt/homebrew/bin/brew shellenv)
 {{- end -}}
 {{- end -}}

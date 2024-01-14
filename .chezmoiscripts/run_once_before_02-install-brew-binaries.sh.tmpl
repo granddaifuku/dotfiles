@@ -1,7 +1,7 @@
 #!/bin/zsh
-{{- if eq.chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" -}}
 set -uxo pipefail
-{{ if eq.chezmoi.arch "arm64" -}}
+{{ if eq .chezmoi.arch "arm64" -}}
 eval $(/opt/homebrew/bin/brew shellenv)
 {{- end -}}
 ## Install cmake openssl, pkg-config for sheldon and starship
