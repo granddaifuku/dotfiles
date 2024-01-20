@@ -4,13 +4,11 @@ export LANG="$LANGUAGE"
 export LC_ALL="$LANGUAGE"
 export LC_CTYPE="$LANGUAGE"
 
-
 {{- if eq .chezmoi.os "darwin" }}
-{{- if eq .chezmoi.arch "arm64" }}
+{{ if eq .chezmoi.arch "arm64" }}
 eval $(/opt/homebrew/bin/brew shellenv)
 {{- end }}
 {{- end }}
-
 
 ## Editor
 EDITOR="$(
@@ -19,7 +17,7 @@ EDITOR="$(
   command -v -- vi
 )"
 if test -n "${EDITOR}"; then
-	export EDITOR
+   export EDITOR
 fi
 
 
@@ -66,8 +64,9 @@ export PATH="$PATH:${CARGO_HOME}/bin"
 
 {{ if eq .chezmoi.os "darwin" }}
 ## Java
-JAVA_HOME="$(/usr/libexec/java_home)"
-if test -n "${JAVA_HOME}"; then
-        export JAVA_HOME
+/usr/libexec/java_home 2>/dev/null
+if test $? -eq 0; then
+   JAVA_HOME="$(/usr/libexec/java_home)"
+   export JAVA_HOME
 fi
 {{- end }}
