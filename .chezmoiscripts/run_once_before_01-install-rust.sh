@@ -9,13 +9,3 @@ export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 if [ ! $(command -v rustup) ]; then
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 fi
-
-rustup default stable
-
-if [ ! $(command -v sheldon) ]; then
-	cargo install sheldon --locked
-fi
-
-if [ ! $(command -v starship) ]; then
-	cargo install starship --locked
-fi
