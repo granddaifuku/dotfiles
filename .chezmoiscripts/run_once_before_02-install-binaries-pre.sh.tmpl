@@ -1,0 +1,25 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/zsh
+set -uxo pipefail
+{{ if eq .chezmoi.arch "arm64" -}}
+eval $(/opt/homebrew/bin/brew shellenv)
+{{- end -}}
+## Install cmake openssl, pkg-config for sheldon and starship
+brew install cmake
+brew install openssl
+brew install pkg-config
+
+{{- else if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.osRelease.id "fedora" }}
+## Fedora
+#!/bin/bash
+## Install zsh, cc, cmake, openssl, pkg-config
+sudo dnf -y install zsh
+sudo dnf -y install gcc
+sudo dnf -y install cmake
+sudo dnf -y install pkgconfig
+sudo dnf -y install openssl-devel
+
+chsh -s /bin/zsh
+{{- end -}}
+{{- end }}

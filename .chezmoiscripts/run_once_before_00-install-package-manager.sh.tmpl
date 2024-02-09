@@ -1,7 +1,6 @@
+{{- if eq .chezmoi.os "darwin" }}
 #!/bin/zsh
 set -uxo pipefail
-
-{{- if eq .chezmoi.os "darwin" }}
 if [ ! $(command -v brew) ]; then
 	xcode-select --install
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
