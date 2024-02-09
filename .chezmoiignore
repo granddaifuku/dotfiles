@@ -6,4 +6,3 @@ README.org
 {{- if ne .chezmoi.os "linux" }}
 **/xremap/
 {{- end }}
-
