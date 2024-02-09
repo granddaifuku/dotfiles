@@ -4,25 +4,11 @@ local act = wezterm.action
 
 -- maximize the window --
 wezterm.on(
-   'gui-startup', function()
-	  local tab, pane, window = mux.spawn_window{}
+   'gui-startup', function(cmd)
+	  local tab, pane, window = mux.spawn_window(cmd or {})
 	  window:gui_window():maximize()
    end
 )
-
--- TODO: When the feature would be available, apply followings.
--- TODO: see https://wezfurlong.org/wezterm/config/lua/wezterm.gui/default_key_tables.html
-
--- local search_mode = nil
--- if wezterm.gui then
---    search_mode = wezterm.gui.default_key_tables().search_mode
---    table.insert(
--- 	  search_mode,
--- 	  { key = 'g', mods = 'CTRL', action = act.CopyMode 'Close' },
--- 	  { key = 'Enter', mods = 'NONE', action = act.CopyMode 'NextMatch'}
---    )
--- end
--- key_tables = {search_mode = search_mode}
 
 local keys = {
    -- paste --
