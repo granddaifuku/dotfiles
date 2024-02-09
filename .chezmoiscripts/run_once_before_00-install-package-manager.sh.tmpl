@@ -1,5 +1,5 @@
+#!/bin/sh
 {{- if eq .chezmoi.os "darwin" }}
-#!/bin/zsh
 set -uxo pipefail
 if [ ! $(command -v brew) ]; then
 	xcode-select --install

@@ -1,9 +1,5 @@
-{{ if eq .chezmoi.os "darwin" -}}
-#!/bin/zsh
+#!/bin/sh
 set -uxo pipefail
-{{- else if eq .chezmoi.os "linux" -}}
-#!/bin/bash
-{{- end }}
 
 # Install followings so that `source ~/.zshenv` does not fail
 export XDG_DATA_HOME="${HOME}/.local/share"
