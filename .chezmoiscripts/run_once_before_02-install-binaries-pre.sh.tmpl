@@ -12,13 +12,15 @@ brew install pkg-config
 {{- else if eq .chezmoi.os "linux" }}
 {{- if eq .chezmoi.osRelease.id "fedora" }}
 ## Fedora
-## Install zsh, cc, cmake, openssl, pkg-config
+## Install zsh, cmake, pkg-config, openssl
 sudo dnf -y install zsh
-sudo dnf -y install gcc
 sudo dnf -y install cmake
 sudo dnf -y install pkgconfig
 sudo dnf -y install openssl-devel
 
-chsh -s /bin/zsh
+## Guard for CI
+if [ $(command -v chsh) ]; then
+	chsh -s /bin/zsh
+fi
 {{- end -}}
 {{- end }}
