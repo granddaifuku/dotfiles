@@ -20,7 +20,7 @@ jobs:
   test-linux:
     strategy:
       matrix:
-        image: [fedora:39]
+        image: ["fedora:39"]
     runs-on: ubuntu-latest
     container: ${{ matrix.image }}
     steps:
