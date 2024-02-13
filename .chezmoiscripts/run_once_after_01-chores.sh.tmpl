@@ -3,4 +3,12 @@ set -uxo pipefail
 
 mkdir ~/Develop
 
-# ./bin/chezmoi cd && git remote set-url origin git@github.com:granddaifuku/dotfiles.git && exit
+{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+# Install nerd fonts
+mkdir -p ${XDG_DATA_HOME}/fonts/{Meslo,Noto}
+(cd ${XDG_DATA_HOME}/fonts/Noto && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Noto/Sans-Mono/NotoSansMNerdFontMono-Regular.ttf)
+(cd ${XDG_DATA_HOME}/fonts/Meslo && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Meslo/M/Regular/MesloLGMNerdFontMono-Regular.ttf)
+fc-cache -v
+{{ end -}}
+{{ end -}}
