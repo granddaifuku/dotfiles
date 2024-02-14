@@ -27,7 +27,12 @@ sudo dnf -y install brave-browser
 
 ## Install wezterm
 sudo dnf copr enable wezfurlong/wezterm-nightly
-sudo dnf install wezterm
+sudo dnf -y install wezterm
+
+## Input methods
+sudo dnf -y install fcitx5
+sudo dnf -y install fcitx5-autostart
+sudo dnf -y install fcitx5-mozc
 {{- end -}}
 
 {{- end }}

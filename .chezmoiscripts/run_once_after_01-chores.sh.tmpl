@@ -13,6 +13,8 @@ fc-cache -v
 
 ## Run xremap automatically
 sudo cp ${XDG_CONFIG_HOME}/xremap/xremap.service /etc/systemd/system/
+sudo systemctl daemon-reload
 sudo systemctl enable xremap.service
+sudo systemctl start xremap.service
 {{ end -}}
 {{ end -}}
