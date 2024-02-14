@@ -24,6 +24,10 @@ sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf -y install brave-browser
+
+## Install wezterm
+sudo dnf copr enable wezfurlong/wezterm-nightly
+sudo dnf install wezterm
 {{- end -}}
 
 {{- end }}
@@ -42,8 +46,13 @@ fi
 cargo install cargo-update
 
 ## Install xremap if linux
-{{- if eq .chezmoi.os "linux" -}}
-{{- end -}}
+{{ if eq .chezmoi.os "linux" -}}
+## GNOME Wayland
+if [ ! $(command -v xremap) ]; then
+	cargo install xremap --features gnome
+fi
+echo "You need to install GNOME Wayland extension"
+{{ end -}}
 
 ## Zsh plugins
 sheldon lock
