@@ -5,10 +5,14 @@ mkdir ~/Develop
 
 {{ if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.id "fedora" -}}
-# Install nerd fonts
+## Install nerd fonts
 mkdir -p ${XDG_DATA_HOME}/fonts/{Meslo,Noto}
 (cd ${XDG_DATA_HOME}/fonts/Noto && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Noto/Sans-Mono/NotoSansMNerdFontMono-Regular.ttf)
 (cd ${XDG_DATA_HOME}/fonts/Meslo && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Meslo/M/Regular/MesloLGMNerdFontMono-Regular.ttf)
 fc-cache -v
+
+## Run xremap automatically
+sudo cp ${XDG_CONFIG_HOME}/xremap/xremap.service /etc/systemd/system/
+sudo systemctl enable xremap.service
 {{ end -}}
 {{ end -}}
