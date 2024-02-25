@@ -12,13 +12,13 @@ mkdir -p ${XDG_DATA_HOME}/fonts/{Meslo,Noto}
 fc-cache -v
 
 ## Run xremap automatically
-sudo cp ${XDG_CONFIG_HOME}/xremap/xremap.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable xremap.service
+# sudo cp ${XDG_CONFIG_HOME}/xremap/xremap.service /etc/systemd/system/
+# sudo systemctl daemon-reload
+# sudo systemctl enable xremap.service
 
 ## Guard for CI
-if [ "$CI" != true ]; then
-	sudo systemctl start xremap.service
-fi
+# if [ "$CI" != true ]; then
+# 	sudo systemctl start xremap.service
+# fi
 {{ end -}}
 {{ end -}}
