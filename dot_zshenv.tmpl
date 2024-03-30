@@ -44,10 +44,8 @@ export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 export WEZTERM_CONFIG_FILE="${XDG_CONFIG_HOME}/wezterm/wezterm.lua"
 
 
+{{- if ne .chezmoi.os "darwin" }}
 ## Docker
-{{ if eq .chezmoi.os "darwin" -}}
-export PATH=$PATH:/usr/local/bin/docker
-{{- else -}}
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export PATH="$PATH:${DOCKER_CONFIG}/bin"
 {{- end }}
