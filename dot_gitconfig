@@ -9,12 +9,14 @@
 	postBuffer = 2M
 [init]
 	defaultBranch = main
+[log]
+	date = iso
 [pull]
 	ff = only
 [push]
 	autoSetupRemote = true
-[log]
-	date = iso
+[rebase]
+	autostash = true
 [user]
 	name = granddaifuku
 	email = daifukuformac@gmail.com
