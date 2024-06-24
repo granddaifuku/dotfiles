@@ -21,7 +21,7 @@ fc-cache -v
 # 	sudo systemctl start xremap.service
 # fi
 
-if [ "CI" != true ]; then
+if [ "$CI" != true ]; then
 	sudo systemctl start docker
 fi
 
