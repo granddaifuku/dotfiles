@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -uxo pipefail
 
-mkdir ~/Develop
+mkdir -p ~/Develop
 
 {{ if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.id "fedora" -}}

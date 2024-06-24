@@ -1,11 +1,22 @@
+[branch]
+	sort = -committerdate
 [color]
 	ui = auto
-[user]
-	name = granddaifuku
-	email = daifukuformac@gmail.com
-[pull]
-	ff = only
+[diff]
+	algorithm = histogram
+	colorMoved = default
 [http]
 	postBuffer = 2M
 [init]
 	defaultBranch = main
+[log]
+	date = iso
+[pull]
+	ff = only
+[push]
+	autoSetupRemote = true
+[rebase]
+	autostash = true
+[user]
+	name = granddaifuku
+	email = daifukuformac@gmail.com
