@@ -17,6 +17,8 @@
 	autoSetupRemote = true
 [rebase]
 	autostash = true
+[rerere]
+	enabled = true
 [user]
 	name = granddaifuku
 	email = daifukuformac@gmail.com
