@@ -21,3 +21,7 @@ fi
 if [ ! $(command -v starship) ]; then
 	cargo install starship --locked
 fi
+
+if [ ! $(command -v fd) ]; then
+	cargo install fd-find
+fi
