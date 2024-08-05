@@ -2,8 +2,6 @@
 tap "chipmk/tap"
 tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "wez/wezterm"
 brew "aspell"
