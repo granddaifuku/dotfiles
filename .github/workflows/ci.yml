@@ -8,6 +8,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  MY_ENV: CI
+
 jobs:
   test-macos:
     strategy:
