@@ -62,11 +62,11 @@ cargo install cargo-update
 
 ## Install xremap if linux
 {{ if eq .chezmoi.os "linux" -}}
-## GNOME Wayland
+## xfce
 if [ ! $(command -v xremap) ]; then
-	cargo install xremap --features gnome
+	cargo install xremap --features x11
 fi
-echo "You need to install GNOME Wayland extension"
+
 {{ end -}}
 
 ## Zsh plugins
