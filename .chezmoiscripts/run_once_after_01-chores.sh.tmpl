@@ -21,7 +21,7 @@ fc-cache -v
 # 	sudo systemctl start xremap.service
 # fi
 
-if [ "$CI" != true ]; then
+if [ "$MY_ENV" = PERSONAL ]; then
 	sudo systemctl start docker
 fi
 
