@@ -65,6 +65,7 @@ cargo install cargo-update
 ## xfce
 if [ ! $(command -v xremap) ]; then
 	cargo install xremap --features x11
+	sudo mv ${CARGO_HOME}/bin/xremap /usr/local/bin
 fi
 
 {{ end -}}

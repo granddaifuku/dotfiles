@@ -11,15 +11,13 @@ mkdir -p ${XDG_DATA_HOME}/fonts/{Meslo,Noto}
 (cd ${XDG_DATA_HOME}/fonts/Meslo && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Meslo/M/Regular/MesloLGMNerdFontMono-Regular.ttf)
 fc-cache -v
 
-## Run xremap automatically
-# sudo cp ${XDG_CONFIG_HOME}/xremap/xremap.service /etc/systemd/system/
-# sudo systemctl daemon-reload
-# sudo systemctl enable xremap.service
-
-## Guard for CI
-# if [ "$CI" != true ]; then
-# 	sudo systemctl start xremap.service
-# fi
+# Run xremap automatically
+if [ "$MY_ENV" != CI ]; then
+	sudo cp ${XDG_CONFIG_HOME}/xremap/xremap.service /etc/systemd/system/
+	xhost +SI:localuser:root
+	sudo systemctl daemon-reload
+	sudo systemctl start xremap.service
+fi
 
 if [ "$MY_ENV" = PERSONAL ]; then
 	sudo systemctl start docker
