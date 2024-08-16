@@ -1,9 +1,8 @@
 README.org
 {{- if ne .chezmoi.os "darwin" }}
-Brewfile
+.Brewfile
 **/karabiner/
 {{- end }}
 {{- if ne .chezmoi.os "linux" }}
 **/xremap/
 {{- end }}
-

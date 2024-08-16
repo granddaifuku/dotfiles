@@ -11,6 +11,7 @@ eval $(/opt/homebrew/bin/brew shellenv)
 export XDG_DATA_HOME="${HOME}/.local/share"
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export PATH="$PATH:${CARGO_HOME}/bin"
 
 rustup default stable
 

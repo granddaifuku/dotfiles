@@ -4,7 +4,8 @@
 - [[https://github.com/twpayne/chezmoi][chezmoi]]
 
 ** Usage
-- ~sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku~
+- ~MY_ENV=xxx sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku~
+MY_ENV could be one of `CI, PERSONAL, WORK`  
 
 ** Managed files
 

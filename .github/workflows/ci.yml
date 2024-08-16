@@ -8,10 +8,25 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  MY_ENV: CI
+
 jobs:
-  test:
-    runs-on: macos-latest
+  test-macos:
+    strategy:
+      matrix:
+        os: [macos-13, macos-14]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Setup chezmoi
         run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku --branch ${{ github.head_ref }}
-        
+  test-linux:
+    strategy:
+      matrix:
+        image: ["fedora:39"]
+    runs-on: ubuntu-latest
+    container: ${{ matrix.image }}
+    steps:
+      - name: Setup chezmoi
+        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku --branch ${{ github.head_ref }}
+    

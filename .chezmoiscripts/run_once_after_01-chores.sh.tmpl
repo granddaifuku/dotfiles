@@ -2,3 +2,26 @@
 set -uxo pipefail
 
 mkdir -p ~/Develop
+
+{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+## Install nerd fonts
+mkdir -p ${XDG_DATA_HOME}/fonts/{Meslo,Noto}
+(cd ${XDG_DATA_HOME}/fonts/Noto && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Noto/Sans-Mono/NotoSansMNerdFontMono-Regular.ttf)
+(cd ${XDG_DATA_HOME}/fonts/Meslo && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Meslo/M/Regular/MesloLGMNerdFontMono-Regular.ttf)
+fc-cache -v
+
+# Run xremap automatically
+if [ "$MY_ENV" != CI ]; then
+	sudo cp ${XDG_CONFIG_HOME}/xremap/xremap.service /etc/systemd/system/
+	xhost +SI:localuser:root
+	sudo systemctl daemon-reload
+	sudo systemctl start xremap.service
+fi
+
+if [ "$MY_ENV" = PERSONAL ]; then
+	sudo systemctl start docker
+fi
+
+{{ end -}}
+{{ end -}}

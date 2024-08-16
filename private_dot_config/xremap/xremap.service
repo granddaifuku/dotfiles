@@ -3,9 +3,11 @@ Description=xremap
 
 [Service]
 KillMode=process
-ExecStart=/home/granddaifuku/.local/share/cargo/bin/xremap --watch=config /home/granddaifuku/.config/xremap/config.yml
+ExecStart=/usr/local/bin/xremap --watch=config /home/granddaifuku/.config/xremap/config.yml
 Type=simple
 Restart=always
+User=root
+Group=root
 
 [Install]
 WantedBy=default.target
