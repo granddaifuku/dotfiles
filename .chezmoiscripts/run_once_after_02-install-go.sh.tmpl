@@ -2,6 +2,8 @@
 set -uxo pipefail
 
 {{ if eq .chezmoi.os "linux" -}}
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
+wget -P /tmp "https://dl.google.com/go/go1.23.1.linux-amd64.tar.gz"
+tar -C /usr/local -xzf "/tmp/go1.23.1.linux-amd64.tar.gz"
+rm "/tmp/go1.23.1.linux-amd64.tar.gz"
 go install golang.org/x/tools/gopls@latest
 {{- end -}}
