@@ -9,6 +9,9 @@ brew bundle --global
 {{- else if eq .chezmoi.os "linux" -}}
 
 {{- if eq .chezmoi.osRelease.id "fedora" }}
+# Requirement for emacs vterm
+sudo dnf -y install libtool
+
 sudo dnf -y install xsel
 sudo dnf -y install emacs
 sudo dnf -y install fzf
