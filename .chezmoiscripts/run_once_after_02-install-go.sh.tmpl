@@ -1,6 +1,6 @@
 #!/bin/sh
 set -uxo pipefail
 
-{{ if eq.chezmoi.os "linux" -}}
+{{ if eq .chezmoi.os "linux" -}}
 rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
 {{- end -}}
