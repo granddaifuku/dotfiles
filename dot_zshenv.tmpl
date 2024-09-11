@@ -4,11 +4,6 @@ export LANG="$LANGUAGE"
 export LC_ALL="$LANGUAGE"
 export LC_CTYPE="$LANGUAGE"
 
-{{- if eq .chezmoi.os "darwin" }}
-{{ if eq .chezmoi.arch "arm64" }}
-eval $(/opt/homebrew/bin/brew shellenv)
-{{- end }}
-{{- end }}
 
 ## Editor
 EDITOR="$(
