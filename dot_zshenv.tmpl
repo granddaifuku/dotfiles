@@ -4,11 +4,6 @@ export LANG="$LANGUAGE"
 export LC_ALL="$LANGUAGE"
 export LC_CTYPE="$LANGUAGE"
 
-{{- if eq .chezmoi.os "darwin" }}
-{{ if eq .chezmoi.arch "arm64" }}
-eval $(/opt/homebrew/bin/brew shellenv)
-{{- end }}
-{{- end }}
 
 ## Editor
 EDITOR="$(
@@ -52,6 +47,7 @@ export PATH="$PATH:${DOCKER_CONFIG}/bin"
 
 
 ## Go
+export PATH="$PATH:/usr/local/go/bin"
 export GOPATH="${XDG_DATA_HOME}/go"
 export PATH="$PATH:${GOPATH}/bin"
 

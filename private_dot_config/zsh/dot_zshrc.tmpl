@@ -3,6 +3,14 @@ export PATH="/usr/local/:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 
+### Brew
+{{- if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.arch "arm64" }}
+eval $(/opt/homebrew/bin/brew shellenv)
+{{- end }}
+{{- end }}
+
+
 ### Emacs keybind
 bindkey -e
 

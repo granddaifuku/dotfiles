@@ -15,11 +15,13 @@ jobs:
   test-macos:
     strategy:
       matrix:
-        os: [macos-13, macos-14]
+        os: [macos-14, macos-15]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Setup chezmoi
         run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku --branch ${{ github.head_ref }}
+      - name: Verify
+        run: ./bin/chezmoi verify
   test-linux:
     strategy:
       matrix:
@@ -29,4 +31,6 @@ jobs:
     steps:
       - name: Setup chezmoi
         run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku --branch ${{ github.head_ref }}
+      - name: Verify
+        run: ./bin/chezmoi verify
     
