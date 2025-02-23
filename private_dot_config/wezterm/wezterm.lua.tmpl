@@ -176,14 +176,14 @@ return {
    },
    keys = keys,
    -- Appearance --
-   color_scheme = "Andromeda",
    colors = {
      compose_cursor = "#696969",
      scrollbar_thumb = "#808080",
    },
-   default_cursor_style = 'BlinkingBar',
+   color_scheme = "Andromeda",
    cursor_blink_rate = 575,
-   line_height = 1.2,
+   default_cursor_style = 'BlinkingBar',
+   enable_scroll_bar = true,
    {{ if eq .chezmoi.os "darwin" -}}
    font = wezterm.font 'Menlo',
    font_size = 12.0,
@@ -192,5 +192,5 @@ return {
    font_size = 9.0,
    {{- end }}
    hide_tab_bar_if_only_one_tab = true,
-   enable_scroll_bar = true,
+   line_height = 1.2,
 }
