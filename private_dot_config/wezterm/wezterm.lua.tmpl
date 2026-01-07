@@ -10,6 +10,64 @@ wezterm.on(
    end
 )
 
+-- right status --
+-- See this: https://wezfurlong.org/wezterm/config/lua/window/set_right_status.html
+-- https://alexplescan.com/posts/2024/08/10/wezterm/
+wezterm.on(
+   'update-right-status', function(window, pane)
+	  local cells = {}
+
+	  local date = wezterm.strftime '%a %b %-d %H:%M'
+	  table.insert(cells, date)
+
+	  -- An entry for each battery (typically 0 or 1 battery)
+	  for _, b in ipairs(wezterm.battery_info()) do
+		 table.insert(cells, string.format('%.0f%%', b.state_of_charge * 100))
+	  end
+
+	  ----- Color -----
+	  local color_scheme = window:effective_config().resolved_palette
+	  local bg = wezterm.color.parse(color_scheme.background)
+	  local fg = color_scheme.foreground
+
+	  local gradient_to, gradient_from = bg
+
+	  gradient_from = gradient_to:lighten(0.2)
+
+	  local gradient = wezterm.color.gradient(
+		 {
+			orientation = 'Horizontal',
+			colors = { gradient_from, gradient_to },
+		 },
+		 #cells
+	  )
+
+	  -- The powerline < symbol
+	  local LEFT_ARROW = utf8.char(0xe0b3)
+	  -- The filled in variant of the < symbol
+	  local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+
+
+	  local elements = {}
+
+	  for i, seg in ipairs(cells) do
+		 local is_first = i == 1
+
+		 if is_first then
+			table.insert(elements, { Background = { Color = 'none' } })
+		 end
+		 table.insert(elements, { Foreground = { Color = gradient[i] } })
+		 table.insert(elements, { Text = SOLID_LEFT_ARROW })
+
+		 table.insert(elements, { Foreground = { Color = fg } })
+		 table.insert(elements, { Background = { Color = gradient[i] } })
+		 table.insert(elements, { Text = ' ' .. seg .. ' ' })
+	  end
+
+	  window:set_right_status(wezterm.format(elements))
+   end
+)
+
 local keys = {
    -- paste --
    {
@@ -118,11 +176,14 @@ return {
    },
    keys = keys,
    -- Appearance --
+   colors = {
+     compose_cursor = "#696969",
+     scrollbar_thumb = "#808080",
+   },
    color_scheme = "Andromeda",
-   colors = { compose_cursor = "#696969" },
-   default_cursor_style = 'BlinkingBar',
    cursor_blink_rate = 575,
-   line_height = 1.2,
+   default_cursor_style = 'BlinkingBar',
+   enable_scroll_bar = true,
    {{ if eq .chezmoi.os "darwin" -}}
    font = wezterm.font 'Menlo',
    font_size = 12.0,
@@ -131,4 +192,5 @@ return {
    font_size = 9.0,
    {{- end }}
    hide_tab_bar_if_only_one_tab = true,
+   line_height = 1.2,
 }
