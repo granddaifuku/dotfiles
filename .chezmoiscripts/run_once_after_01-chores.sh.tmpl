@@ -12,14 +12,14 @@ mkdir -p ${XDG_DATA_HOME}/fonts/{Meslo,Noto}
 fc-cache -v
 
 # Run xremap automatically
-if [ "$MY_ENV" != CI ]; then
+if [ "{{ .my_env }}" != CI ]; then
 	sudo cp ${XDG_CONFIG_HOME}/xremap/xremap.service /etc/systemd/system/
 	xhost +SI:localuser:root
 	sudo systemctl daemon-reload
 	sudo systemctl start xremap.service
 fi
 
-if [ "$MY_ENV" = PERSONAL ]; then
+if [ "{{ .my_env }}" = PERSONAL ]; then
 	sudo systemctl start docker
 fi
 
