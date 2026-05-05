@@ -1,0 +1,22 @@
+;; Minimal macOS kanata config matching the old Karabiner setup.
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps
+  lctl
+  f3
+  rmet
+)
+
+(defalias
+  rcmd (tap-hold-press 200 200 C-spc rmet)
+)
+
+(deflayer base
+  lctl
+  lalt
+  MissionControl
+  @rcmd
+)
