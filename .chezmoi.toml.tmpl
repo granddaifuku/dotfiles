@@ -1,0 +1,7 @@
+{{- $choices := list "PERSONAL" "WORK" -}}
+{{- $myEnv := "CI" -}}
+{{- if stdinIsATTY -}}
+{{- $myEnv = promptChoiceOnce . "my_env" "Select the environment for this machine" $choices -}}
+{{- end -}}
+[data]
+    my_env = {{ $myEnv | quote }}
