@@ -19,6 +19,8 @@ jobs:
         run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku --branch ${{ github.head_ref }}
       - name: Verify
         run: ./bin/chezmoi verify
+      - name: Verify kanata config
+        run: kanata --check -c "${HOME}/.config/kanata/kanata.kbd"
   test-linux:
     strategy:
       matrix:
