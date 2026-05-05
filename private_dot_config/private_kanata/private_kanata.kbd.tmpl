@@ -1,0 +1,23 @@
+;; Minimal macOS kanata config matching the old Karabiner setup.
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd yes
+)
+
+(defsrc
+  caps
+  lctl
+  f3
+  rmet
+)
+
+(defalias
+  ime-toggle (cmd "{{ .chezmoi.homeDir }}/.config/kanata/toggle-input-source.sh")
+)
+
+(deflayer base
+  lctl
+  lalt
+  MissionControl
+  @ime-toggle
+)

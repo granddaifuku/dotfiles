@@ -15,10 +15,6 @@ cargo install kanata --locked --features cmd --force
 sudo mkdir -p /usr/local/bin
 sudo cp ${CARGO_HOME}/bin/kanata /usr/local/bin/kanata
 
-if ! /usr/local/bin/kanata --macos-request-permissions; then
-	echo "warning: unable to pre-register kanata accessibility permissions" >&2
-fi
-
 sudo cp ${XDG_CONFIG_HOME}/kanata/kanata.plist /Library/LaunchDaemons/dev.kanata.kanata.plist
 sudo chown root:wheel /Library/LaunchDaemons/dev.kanata.kanata.plist
 sudo launchctl bootout system/dev.kanata.kanata >/dev/null 2>&1 || true
