@@ -6,6 +6,7 @@
 ** Usage
 - ~sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku~
 - On first run, chezmoi will ask which machine environment this is and store the answer for future applies.
+- You can inspect the stored environment with ~chezmoi cat-config~.
 - Non-interactive runs automatically use `CI`.
 
 ** Managed files
