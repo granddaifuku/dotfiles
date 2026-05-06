@@ -16,10 +16,11 @@
 |WORK| Work machine configuration. |
 
 *** Key remapping
-**** macOS
+**** Darwin
 - Key remapping is handled by ~kanata~.
 - kanata is installed via ~cargo~ with the ~cmd~ feature so it can run the input-source toggle script.
 - kanata still relies on the Karabiner driver backend.
+- Follow [[https://github.com/jtroo/kanata/blob/95197d75bd3443d996f431283f350606a789ce7a/docs/setup-macos.md]This link]
 
 ** Managed files
 
@@ -35,4 +36,5 @@
 - ~Kanata~
 
 *** Linux
+- ~fcitx5~
 - ~xremap~
