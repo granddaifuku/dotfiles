@@ -7,7 +7,17 @@
 - ~sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku~
 - On first run, chezmoi will ask which machine environment this is and store the answer for future applies.
 - You can inspect the stored environment with ~chezmoi cat-config~.
-- Non-interactive runs automatically use `CI`.
+
+*** Supported Environment
+|Name|Note|
+|----+----|
+|CI  | Non-interactive runs automatically use this env. |
+|PERSONAL| Personal machine configuration. |
+|WORK| Work machine configuration. |
+
+*** Key remapping
+**** Darwin
+- Key remapping is handled by ~Karabiner-Elements~.
 
 ** Managed files
 
@@ -23,4 +33,5 @@
 - ~Karabiner-Elements~
 
 *** Linux
+- ~fcitx5~
 - ~xremap~
