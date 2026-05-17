@@ -7,20 +7,7 @@
 - ~sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply granddaifuku~
 - On first run, chezmoi will ask which machine environment this is and store the answer for future applies.
 - You can inspect the stored environment with ~chezmoi cat-config~.
-
-*** Supported Environment
-|Name|Note|
-|----+----|
-|CI  | Non-interactive runs automatically use this env. |
-|PERSONAL| Personal machine configuration. |
-|WORK| Work machine configuration. |
-
-*** Key remapping
-**** Darwin
-- Key remapping is handled by ~kanata~.
-- kanata is installed via ~cargo~ with the ~cmd~ feature so it can run the input-source toggle script.
-- kanata still relies on the Karabiner driver backend.
-- Follow [[https://github.com/jtroo/kanata/blob/95197d75bd3443d996f431283f350606a789ce7a/docs/setup-macos.md]This link]
+- Non-interactive runs automatically use `CI`.
 
 ** Managed files
 
@@ -33,8 +20,7 @@
 
 *** Darwin
 - ~Brewfile~
-- ~Kanata~
+- ~Karabiner-Elements~
 
 *** Linux
-- ~fcitx5~
 - ~xremap~
