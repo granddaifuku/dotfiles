@@ -78,8 +78,14 @@ local keys = {
 	  mods = 'CTRL',
 	  action = act.CloseCurrentTab { confirm = true },
    },
+   {
+	  -- Activate the 10th tab --
+	  key = tostring(0),
+	  mods = 'CTRL',
+	  action = act.ActivateTab(9)
+   },
 }
-for i = 1, 8 do
+for i = 1, 9 do
    table.insert(keys,
 				{
 				   key = tostring(i),
