@@ -5,4 +5,5 @@ README.org
 {{- end }}
 {{- if ne .chezmoi.os "linux" }}
 **/xremap/
+**/fcitx5/
 {{- end }}
