@@ -2,6 +2,9 @@
 	sort = -committerdate
 [color]
 	ui = auto
+[core]
+	autocrlf = false
+	filemode = false
 [diff]
 	algorithm = histogram
 	colorMoved = default
